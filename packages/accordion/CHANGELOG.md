@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.0.11
+
+### Patch Changes
+
+- [#6499](https://github.com/chakra-ui/chakra-ui/pull/6499)
+  [`d4c55b5db`](https://github.com/chakra-ui/chakra-ui/commit/d4c55b5dbf24421aa3050fc7823fd948fb63378a)
+  Thanks [@anubra266](https://github.com/anubra266)! - Refactor accordion
+
 ## 2.0.10
 
 ### Patch Changes
