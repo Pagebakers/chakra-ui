@@ -1,5 +1,23 @@
 # Change Log
 
+## 2.2.9
+
+### Patch Changes
+
+- Updated dependencies
+  [[`d4c55b5db`](https://github.com/chakra-ui/chakra-ui/commit/d4c55b5dbf24421aa3050fc7823fd948fb63378a),
+  [`96bf71998`](https://github.com/chakra-ui/chakra-ui/commit/96bf7199889d2023bb2e4fd3f9c0511bffa70e9e),
+  [`e111fa229`](https://github.com/chakra-ui/chakra-ui/commit/e111fa229227a90c8caf541b2e51cf6c80229e6e)]:
+  - @chakra-ui/accordion@2.0.11
+  - @chakra-ui/counter@2.0.9
+  - @chakra-ui/button@2.0.9
+  - @chakra-ui/number-input@2.0.9
+  - @chakra-ui/menu@2.0.10
+  - @chakra-ui/popover@2.0.8
+  - @chakra-ui/portal@2.0.8
+  - @chakra-ui/table@2.0.8
+  - @chakra-ui/toast@3.0.6
+
 ## 2.2.8
 
 ### Patch Changes
