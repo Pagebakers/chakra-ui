@@ -94,6 +94,9 @@ const DefaultPortal = (
 
 interface ContainerPortalProps extends React.PropsWithChildren<{}> {
   containerRef: React.RefObject<HTMLElement | null>
+  /**
+   * @default false
+   */
   appendToParentPortal?: boolean
 }
 
@@ -167,16 +170,17 @@ export interface PortalProps {
  */
 
 export function Portal(props: PortalProps) {
-  const { containerRef, ...rest } = props
+  const portalProps: PortalProps = {
+    appendToParentPortal: true,
+    ...props,
+  }
+
+  const { containerRef, ...rest } = portalProps
   return containerRef ? (
     <ContainerPortal containerRef={containerRef} {...rest} />
   ) : (
     <DefaultPortal {...rest} />
   )
-}
-
-Portal.defaultProps = {
-  appendToParentPortal: true,
 }
 
 Portal.className = PORTAL_CLASSNAME

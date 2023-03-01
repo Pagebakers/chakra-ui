@@ -58,6 +58,10 @@ export interface UseMenuProps
   extends Omit<UsePopperProps, "enabled">,
     UseDisclosureProps {
   /**
+   * The `ref` of the element that should receive focus when the popover opens.
+   */
+  initialFocusRef?: React.RefObject<{ focus(): void }>
+  /**
    * If `true`, the menu will close when a menu item is
    * clicked
    *
@@ -82,6 +86,8 @@ export interface UseMenuProps
    * Performance 🚀:
    * If `true`, the MenuItem rendering will be deferred
    * until the menu is open.
+   *
+   * @default false
    */
   isLazy?: boolean
   /**
@@ -107,6 +113,8 @@ export interface UseMenuProps
    *
    * Note 🚨: We don't recommend using this in a menu/popover intensive UI or page
    * as it might affect scrolling performance.
+   *
+   * @default false
    */
   computePositionOnMount?: boolean
 }
@@ -139,6 +147,7 @@ export function useMenu(props: UseMenuProps = {}) {
     id,
     closeOnSelect = true,
     closeOnBlur = true,
+    initialFocusRef,
     autoSelect = true,
     isLazy,
     isOpen: isOpenProp,
@@ -170,11 +179,15 @@ export function useMenu(props: UseMenuProps = {}) {
 
   const focusFirstItem = useCallback(() => {
     const id = setTimeout(() => {
-      const first = descendants.firstEnabled()
-      if (first) setFocusedIndex(first.index)
+      if (initialFocusRef) {
+        initialFocusRef.current?.focus()
+      } else {
+        const first = descendants.firstEnabled()
+        if (first) setFocusedIndex(first.index)
+      }
     })
     timeoutIds.current.add(id)
-  }, [descendants])
+  }, [descendants, initialFocusRef])
 
   const focusLastItem = useCallback(() => {
     const id = setTimeout(() => {
@@ -277,6 +290,14 @@ export function useMenu(props: UseMenuProps = {}) {
     node?.focus()
   }, [isOpen, focusedIndex, descendants])
 
+  /**
+   * Track the animation frame which is scheduled to focus
+   * a menu item, so it can be cancelled if another item
+   * is focused before the animation executes. This prevents
+   * infinite rerenders.
+   */
+  const rafId = useRef<number | null>(null)
+
   return {
     openAndFocusMenu,
     openAndFocusFirstItem,
@@ -302,6 +323,8 @@ export function useMenu(props: UseMenuProps = {}) {
     setFocusedIndex,
     isLazy,
     lazyBehavior,
+    initialFocusRef,
+    rafId,
   }
 }
 
@@ -551,6 +574,7 @@ export function useMenuItem(
     onMouseMove: onMouseMoveProp,
     onMouseLeave: onMouseLeaveProp,
     onClick: onClickProp,
+    onFocus: onFocusProp,
     isDisabled,
     isFocusable,
     closeOnSelect,
@@ -568,6 +592,7 @@ export function useMenuItem(
     menuRef,
     isOpen,
     menuId,
+    rafId,
   } = menu
 
   const ref = useRef<HTMLDivElement>(null)
@@ -623,6 +648,14 @@ export function useMenuItem(
     [onClose, onClickProp, menuCloseOnSelect, closeOnSelect],
   )
 
+  const onFocus = useCallback(
+    (event: React.FocusEvent) => {
+      onFocusProp?.(event)
+      setFocusedIndex(index)
+    },
+    [setFocusedIndex, onFocusProp, index],
+  )
+
   const isFocused = index === focusedIndex
 
   const trulyDisabled = isDisabled && !isFocusable
@@ -630,8 +663,13 @@ export function useMenuItem(
   useUpdateEffect(() => {
     if (!isOpen) return
     if (isFocused && !trulyDisabled && ref.current) {
-      requestAnimationFrame(() => {
+      // Cancel any pending animations
+      if (rafId.current) {
+        cancelAnimationFrame(rafId.current)
+      }
+      rafId.current = requestAnimationFrame(() => {
         ref.current?.focus()
+        rafId.current = null
       })
     } else if (menuRef.current && !isActiveElement(menuRef.current)) {
       menuRef.current.focus()
@@ -640,6 +678,7 @@ export function useMenuItem(
 
   const clickableProps = useClickable({
     onClick,
+    onFocus,
     onMouseEnter,
     onMouseMove,
     onMouseLeave,

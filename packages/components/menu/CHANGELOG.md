@@ -1,5 +1,163 @@
 # Change Log
 
+## 2.1.8
+
+### Patch Changes
+
+- [#7248](https://github.com/chakra-ui/chakra-ui/pull/7248)
+  [`c57b00f80`](https://github.com/chakra-ui/chakra-ui/commit/c57b00f80f177c2a165dc3e879e30e362b0806fb)
+  Thanks [@segunadebayo](https://github.com/segunadebayo)! - - Improved JS Doc
+  comments to include default values
+  - Fixed regression in exported components
+- Updated dependencies
+  [[`c57b00f80`](https://github.com/chakra-ui/chakra-ui/commit/c57b00f80f177c2a165dc3e879e30e362b0806fb)]:
+  - @chakra-ui/clickable@2.0.14
+  - @chakra-ui/popper@3.0.13
+  - @chakra-ui/transition@2.0.15
+
+## 2.1.7
+
+### Patch Changes
+
+- [`ddbb1b4c4`](https://github.com/chakra-ui/chakra-ui/commit/ddbb1b4c49b8f124c0368929357e2891265a50c0)
+  Thanks [@segunadebayo](https://github.com/segunadebayo)! - Bump all packages
+
+- Updated dependencies
+  [[`ddbb1b4c4`](https://github.com/chakra-ui/chakra-ui/commit/ddbb1b4c49b8f124c0368929357e2891265a50c0)]:
+  - @chakra-ui/clickable@2.0.13
+  - @chakra-ui/descendant@3.0.13
+  - @chakra-ui/popper@3.0.12
+  - @chakra-ui/transition@2.0.14
+  - @chakra-ui/react-context@2.0.7
+  - @chakra-ui/react-use-animation-state@2.0.8
+  - @chakra-ui/react-use-controllable-state@2.0.8
+  - @chakra-ui/react-use-disclosure@2.0.8
+  - @chakra-ui/react-use-focus-effect@2.0.9
+  - @chakra-ui/react-use-merge-refs@2.0.7
+  - @chakra-ui/react-use-outside-click@2.0.7
+  - @chakra-ui/react-use-update-effect@2.0.7
+  - @chakra-ui/lazy-utils@2.0.5
+  - @chakra-ui/react-children-utils@2.0.6
+  - @chakra-ui/shared-utils@2.0.5
+
+## 2.1.6
+
+### Patch Changes
+
+- [#7154](https://github.com/chakra-ui/chakra-ui/pull/7154)
+  [`2d7398a01`](https://github.com/chakra-ui/chakra-ui/commit/2d7398a0142b5bdd3f68ce05bd159fc824cda5ef)
+  Thanks [@segunadebayo](https://github.com/segunadebayo)! - ## All components
+
+  Improved the bundling setup for all components.
+
+  - Switched to the `.mjs` file extension for correct ESM behavior
+  - Switched to the latest `tsup` will uses automatic JSX runtime detection
+    removing the need for manually inject classic `React` import
+  - Moved `tsup` config to `package.json` since it's very minimal
+  - Removed `clean-package.config.json` in favor of the `package.json` property
+  - Fixed issue where Storybook addon (dark mode and RTL) was not working
+
+- Updated dependencies
+  [[`b374879fe`](https://github.com/chakra-ui/chakra-ui/commit/b374879fe0c72362575d86161d3093cd73b12caf),
+  [`2d7398a01`](https://github.com/chakra-ui/chakra-ui/commit/2d7398a0142b5bdd3f68ce05bd159fc824cda5ef)]:
+  - @chakra-ui/popper@3.0.11
+  - @chakra-ui/clickable@2.0.12
+  - @chakra-ui/descendant@3.0.12
+  - @chakra-ui/transition@2.0.13
+  - @chakra-ui/react-context@2.0.6
+  - @chakra-ui/react-use-animation-state@2.0.7
+  - @chakra-ui/react-use-controllable-state@2.0.7
+  - @chakra-ui/react-use-disclosure@2.0.7
+  - @chakra-ui/react-use-focus-effect@2.0.8
+  - @chakra-ui/react-use-merge-refs@2.0.6
+  - @chakra-ui/react-use-outside-click@2.0.6
+  - @chakra-ui/react-use-update-effect@2.0.6
+  - @chakra-ui/lazy-utils@2.0.4
+  - @chakra-ui/react-children-utils@2.0.5
+  - @chakra-ui/shared-utils@2.0.4
+
+## 2.1.5
+
+### Patch Changes
+
+- [#7032](https://github.com/chakra-ui/chakra-ui/pull/7032)
+  [`f84891b10`](https://github.com/chakra-ui/chakra-ui/commit/f84891b103c1b666f660018442fd92151e3ea868)
+  Thanks [@anubra266](https://github.com/anubra266)! - Add support for setting
+  the initially focused menu programmatically
+
+  ```jsx live=false
+  const Example = () => {
+    const itemRef = useRef(null)
+    return (
+      <Menu initialFocusRef={itemRef}>
+        <MenuButton>Welcome</MenuButton>
+        <MenuList>
+          <MenuItem>Menu 1</MenuItem>
+          <MenuItem ref={itemRef}>Menu 2</MenuItem>
+          <MenuItem>Menu 3</MenuItem>
+        </MenuList>
+      </Menu>
+    )
+  }
+  ```
+
+- Updated dependencies []:
+  - @chakra-ui/popper@3.0.10
+  - @chakra-ui/clickable@2.0.11
+  - @chakra-ui/descendant@3.0.11
+
+## 2.1.4
+
+### Patch Changes
+
+- [#6945](https://github.com/chakra-ui/chakra-ui/pull/6945)
+  [`75eaba929`](https://github.com/chakra-ui/chakra-ui/commit/75eaba9293e2c7d5bd6aed2037df05128f335930)
+  Thanks [@anddoutoi](https://github.com/anddoutoi)! - Fix issue where using
+  `@chakra-ui/react` in a TypeScript project with `"type": "module"` in
+  `package.json` and `"moduleResolution": "Node16"` in `tsconfig.json` cannot
+  find the types.
+- Updated dependencies
+  [[`75eaba929`](https://github.com/chakra-ui/chakra-ui/commit/75eaba9293e2c7d5bd6aed2037df05128f335930)]:
+  - @chakra-ui/clickable@2.0.11
+  - @chakra-ui/descendant@3.0.11
+  - @chakra-ui/popper@3.0.9
+  - @chakra-ui/transition@2.0.12
+  - @chakra-ui/react-context@2.0.5
+  - @chakra-ui/react-use-animation-state@2.0.6
+  - @chakra-ui/react-use-controllable-state@2.0.6
+  - @chakra-ui/react-use-disclosure@2.0.6
+  - @chakra-ui/react-use-focus-effect@2.0.7
+  - @chakra-ui/react-use-merge-refs@2.0.5
+  - @chakra-ui/react-use-outside-click@2.0.5
+  - @chakra-ui/react-use-update-effect@2.0.5
+  - @chakra-ui/lazy-utils@2.0.3
+  - @chakra-ui/react-children-utils@2.0.4
+
+## 2.1.3
+
+### Patch Changes
+
+- Updated dependencies
+  [[`49dc149cc`](https://github.com/chakra-ui/chakra-ui/commit/49dc149cc600af83dcde4fa9b6a34a6b14dca837)]:
+  - @chakra-ui/react-use-focus-effect@2.0.6
+  - @chakra-ui/descendant@3.0.10
+  - @chakra-ui/popper@3.0.8
+  - @chakra-ui/transition@2.0.11
+  - @chakra-ui/clickable@2.0.10
+
+## 2.1.2
+
+### Patch Changes
+
+- Updated dependencies
+  [[`182080e4b`](https://github.com/chakra-ui/chakra-ui/commit/182080e4b2148cfc0a0699d02012ffbfc1f4274c),
+  [`b06b3cca6`](https://github.com/chakra-ui/chakra-ui/commit/b06b3cca679cc7083826b8629add6db6b8218928)]:
+  - @chakra-ui/transition@2.0.11
+  - @chakra-ui/react-children-utils@2.0.3
+  - @chakra-ui/descendant@3.0.10
+  - @chakra-ui/popper@3.0.8
+  - @chakra-ui/clickable@2.0.10
+
 ## 2.1.1
 
 ### Patch Changes

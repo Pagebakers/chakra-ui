@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/checkbox",
-  "version": "2.2.1",
+  "version": "2.2.10",
   "description": "A React Checkbox component for use in forms",
   "keywords": [
     "react",
@@ -44,30 +44,38 @@
     "@chakra-ui/react-use-update-effect": "workspace:*",
     "@chakra-ui/react-types": "workspace:*",
     "@chakra-ui/visually-hidden": "workspace:*",
-    "@zag-js/focus-visible": "0.1.0"
+    "@zag-js/focus-visible": "0.2.1",
+    "@chakra-ui/shared-utils": "workspace:*"
   },
   "devDependencies": {
-    "@chakra-ui/shared-utils": "workspace:*",
     "@chakra-ui/object-utils": "workspace:*",
     "@chakra-ui/system": "workspace:*",
     "@chakra-ui/layout": "workspace:*",
     "@chakra-ui/icon": "workspace:*",
-    "framer-motion": "^6.2.9",
     "react": "^18.0.0",
     "clean-package": "2.1.1"
   },
   "peerDependencies": {
     "@chakra-ui/system": ">=2.0.0",
-    "framer-motion": ">=4.0.0",
     "react": ">=18"
   },
   "scripts": {
-    "build": "JSX=1 tsup src/index.ts --dts",
+    "build": "tsup src --dts",
     "dev": "pnpm build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "build:fast": "JSX=1 tsup src/index.ts",
+    "build:fast": "tsup src",
     "prepack": "clean-package",
-    "postpack": "clean-package restore"
+    "postpack": "clean-package restore",
+    "typedocs": "tsx ../../../scripts/generate-type-docs.ts"
+  },
+  "clean-package": "../../../clean-package.config.json",
+  "tsup": {
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "cjs",
+      "esm"
+    ]
   }
 }

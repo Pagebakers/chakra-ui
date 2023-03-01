@@ -1,5 +1,206 @@
 # Change Log
 
+## 5.0.1
+
+### Patch Changes
+
+- [#7248](https://github.com/chakra-ui/chakra-ui/pull/7248)
+  [`c57b00f80`](https://github.com/chakra-ui/chakra-ui/commit/c57b00f80f177c2a165dc3e879e30e362b0806fb)
+  Thanks [@segunadebayo](https://github.com/segunadebayo)! - - Improved JS Doc
+  comments to include default values
+  - Fixed regression in exported components
+- Updated dependencies
+  [[`c57b00f80`](https://github.com/chakra-ui/chakra-ui/commit/c57b00f80f177c2a165dc3e879e30e362b0806fb)]:
+  - @chakra-ui/alert@2.0.17
+  - @chakra-ui/close-button@2.0.17
+  - @chakra-ui/portal@2.0.15
+
+## 5.0.0
+
+### Patch Changes
+
+- [#6451](https://github.com/chakra-ui/chakra-ui/pull/6451)
+  [`e0f6441c8`](https://github.com/chakra-ui/chakra-ui/commit/e0f6441c8aa3e4a4609f2b49299adfd94097cb51)
+  Thanks [@sofiyevsr](https://github.com/sofiyevsr)! - Fix issue where default
+  toast options are not applied correctly.
+
+- [`ddbb1b4c4`](https://github.com/chakra-ui/chakra-ui/commit/ddbb1b4c49b8f124c0368929357e2891265a50c0)
+  Thanks [@segunadebayo](https://github.com/segunadebayo)! - Bump all packages
+
+- Updated dependencies
+  [[`97fa1d854`](https://github.com/chakra-ui/chakra-ui/commit/97fa1d8541688518768aed9e54ed6ce26b6cd73a),
+  [`292864aba`](https://github.com/chakra-ui/chakra-ui/commit/292864abae83833a826b2fe4a9d69ddcfe7fbe17),
+  [`3ce311ac7`](https://github.com/chakra-ui/chakra-ui/commit/3ce311ac796bc7f24d7b92bf52f5f207348963cc),
+  [`ddbb1b4c4`](https://github.com/chakra-ui/chakra-ui/commit/ddbb1b4c49b8f124c0368929357e2891265a50c0)]:
+  - @chakra-ui/theme@2.2.5
+  - @chakra-ui/styled-system@2.5.2
+  - @chakra-ui/system@2.4.0
+  - @chakra-ui/alert@2.0.16
+  - @chakra-ui/close-button@2.0.16
+  - @chakra-ui/portal@2.0.14
+  - @chakra-ui/react-context@2.0.7
+  - @chakra-ui/react-use-timeout@2.0.5
+  - @chakra-ui/react-use-update-effect@2.0.7
+  - @chakra-ui/shared-utils@2.0.5
+
+## 4.0.9
+
+### Patch Changes
+
+- Updated dependencies
+  [[`c5be1bc73`](https://github.com/chakra-ui/chakra-ui/commit/c5be1bc734e833a32c1c08c734c2ff6e6dca6f36)]:
+  - @chakra-ui/system@2.3.8
+  - @chakra-ui/alert@2.0.15
+  - @chakra-ui/close-button@2.0.15
+  - @chakra-ui/styled-system@2.5.1
+
+## 4.0.8
+
+### Patch Changes
+
+- Updated dependencies
+  [[`2d8f36c1d`](https://github.com/chakra-ui/chakra-ui/commit/2d8f36c1d100bb729aa735cbea4a338550cb2bfc)]:
+  - @chakra-ui/system@2.3.7
+  - @chakra-ui/theme@2.2.4
+  - @chakra-ui/alert@2.0.14
+  - @chakra-ui/close-button@2.0.14
+
+## 4.0.7
+
+### Patch Changes
+
+- [#7154](https://github.com/chakra-ui/chakra-ui/pull/7154)
+  [`2d7398a01`](https://github.com/chakra-ui/chakra-ui/commit/2d7398a0142b5bdd3f68ce05bd159fc824cda5ef)
+  Thanks [@segunadebayo](https://github.com/segunadebayo)! - ## All components
+
+  Improved the bundling setup for all components.
+
+  - Switched to the `.mjs` file extension for correct ESM behavior
+  - Switched to the latest `tsup` will uses automatic JSX runtime detection
+    removing the need for manually inject classic `React` import
+  - Moved `tsup` config to `package.json` since it's very minimal
+  - Removed `clean-package.config.json` in favor of the `package.json` property
+  - Fixed issue where Storybook addon (dark mode and RTL) was not working
+
+- Updated dependencies
+  [[`2d7398a01`](https://github.com/chakra-ui/chakra-ui/commit/2d7398a0142b5bdd3f68ce05bd159fc824cda5ef),
+  [`0eedc151c`](https://github.com/chakra-ui/chakra-ui/commit/0eedc151caec8dbdb53e4e5e8354e2310553c19f),
+  [`96287f8c2`](https://github.com/chakra-ui/chakra-ui/commit/96287f8c2cd0642c69529b6384f0bf338ad8476d)]:
+  - @chakra-ui/alert@2.0.14
+  - @chakra-ui/close-button@2.0.14
+  - @chakra-ui/portal@2.0.13
+  - @chakra-ui/theme@2.2.3
+  - @chakra-ui/styled-system@2.5.1
+  - @chakra-ui/system@2.3.6
+  - @chakra-ui/react-use-timeout@2.0.4
+  - @chakra-ui/react-use-update-effect@2.0.6
+  - @chakra-ui/shared-utils@2.0.4
+
+## 4.0.6
+
+### Patch Changes
+
+- Updated dependencies
+  [[`37b7a130a`](https://github.com/chakra-ui/chakra-ui/commit/37b7a130aaff0cbb97f206978315075eb06e5100)]:
+  - @chakra-ui/styled-system@2.5.0
+  - @chakra-ui/theme@2.2.2
+  - @chakra-ui/system@2.3.5
+  - @chakra-ui/alert@2.0.13
+  - @chakra-ui/close-button@2.0.13
+
+## 4.0.5
+
+### Patch Changes
+
+- Updated dependencies
+  [[`4dbfc1a11`](https://github.com/chakra-ui/chakra-ui/commit/4dbfc1a115a2fce51b29f3fd3baa3a823b3e359d)]:
+  - @chakra-ui/portal@2.0.12
+
+## 4.0.4
+
+### Patch Changes
+
+- Updated dependencies
+  [[`eb3bfe66d`](https://github.com/chakra-ui/chakra-ui/commit/eb3bfe66d3aecc8cf46f29ef08dc748afb83f781),
+  [`4d5501b82`](https://github.com/chakra-ui/chakra-ui/commit/4d5501b82b6fe215f1a7d205250325c0a2221337),
+  [`1a4dad7a4`](https://github.com/chakra-ui/chakra-ui/commit/1a4dad7a4f15e24e0f529b8f8277346d0399c3fc),
+  [`eb82598c2`](https://github.com/chakra-ui/chakra-ui/commit/eb82598c27e97d0e7a77412d3ecc95918a2b73fa),
+  [`9e3d91fd7`](https://github.com/chakra-ui/chakra-ui/commit/9e3d91fd73b1cadc14f98b6c834c0e6faf134bd2),
+  [`bf7704112`](https://github.com/chakra-ui/chakra-ui/commit/bf7704112ebb2aba675084706c8364a755ad10e3)]:
+  - @chakra-ui/styled-system@2.4.0
+  - @chakra-ui/theme@2.2.2
+  - @chakra-ui/system@2.3.4
+  - @chakra-ui/portal@2.0.11
+  - @chakra-ui/alert@2.0.13
+  - @chakra-ui/close-button@2.0.13
+
+## 4.0.3
+
+### Patch Changes
+
+- Updated dependencies
+  [[`cbd09c31f`](https://github.com/chakra-ui/chakra-ui/commit/cbd09c31ff7134157906dbaeaaea5a920185e36a)]:
+  - @chakra-ui/theme@2.2.1
+  - @chakra-ui/system@2.3.3
+  - @chakra-ui/alert@2.0.12
+  - @chakra-ui/close-button@2.0.12
+
+## 4.0.2
+
+### Patch Changes
+
+- [#6945](https://github.com/chakra-ui/chakra-ui/pull/6945)
+  [`75eaba929`](https://github.com/chakra-ui/chakra-ui/commit/75eaba9293e2c7d5bd6aed2037df05128f335930)
+  Thanks [@anddoutoi](https://github.com/anddoutoi)! - Fix issue where using
+  `@chakra-ui/react` in a TypeScript project with `"type": "module"` in
+  `package.json` and `"moduleResolution": "Node16"` in `tsconfig.json` cannot
+  find the types.
+- Updated dependencies
+  [[`9c7db55f4`](https://github.com/chakra-ui/chakra-ui/commit/9c7db55f486280ef81adc97cf597a9101db2ceb2),
+  [`2a86d6c35`](https://github.com/chakra-ui/chakra-ui/commit/2a86d6c353e88d86b46030a53130a062433f30b2),
+  [`2a86d6c35`](https://github.com/chakra-ui/chakra-ui/commit/2a86d6c353e88d86b46030a53130a062433f30b2),
+  [`75eaba929`](https://github.com/chakra-ui/chakra-ui/commit/75eaba9293e2c7d5bd6aed2037df05128f335930)]:
+  - @chakra-ui/theme@2.2.0
+  - @chakra-ui/system@2.3.2
+  - @chakra-ui/alert@2.0.12
+  - @chakra-ui/close-button@2.0.12
+  - @chakra-ui/portal@2.0.11
+  - @chakra-ui/styled-system@2.3.5
+  - @chakra-ui/react-use-timeout@2.0.3
+  - @chakra-ui/react-use-update-effect@2.0.5
+
+## 4.0.1
+
+### Patch Changes
+
+- Updated dependencies
+  [[`f3b66694f`](https://github.com/chakra-ui/chakra-ui/commit/f3b66694f054491dcf8830ec48cd0e4ee77490e0)]:
+  - @chakra-ui/theme@2.1.15
+  - @chakra-ui/system@2.3.1
+  - @chakra-ui/alert@2.0.11
+  - @chakra-ui/close-button@2.0.11
+
+## 4.0.0
+
+### Patch Changes
+
+- [#6781](https://github.com/chakra-ui/chakra-ui/pull/6781)
+  [`6d3178273`](https://github.com/chakra-ui/chakra-ui/commit/6d3178273dd7742cd14d5902606c70cdd9adb0d3)
+  Thanks [@anubra266](https://github.com/anubra266)! - Allow `containerStyles`
+  to accept style props, not just React CSS properties
+
+* [`58511eae5`](https://github.com/chakra-ui/chakra-ui/commit/58511eae5b6c5f321fef3fade42a63a1639b31f7)
+  Thanks [@segunadebayo](https://github.com/segunadebayo)! - Expose original
+  toast options to toast `render` options
+
+* Updated dependencies
+  [[`58856c739`](https://github.com/chakra-ui/chakra-ui/commit/58856c739c536474cc23a94809082a9d549c71a3),
+  [`87f5c275e`](https://github.com/chakra-ui/chakra-ui/commit/87f5c275e42c36ff806f553f80ae559fad4182ef)]:
+  - @chakra-ui/theme@2.1.14
+  - @chakra-ui/system@2.3.0
+  - @chakra-ui/alert@2.0.11
+  - @chakra-ui/close-button@2.0.11
+
 ## 3.0.13
 
 ### Patch Changes

@@ -4,6 +4,7 @@ import type { RenderProps, ToastId, ToastOptions } from "./toast.types"
 import { createToastFn, CreateToastFnReturn } from "./toast"
 import { ToastPosition } from "./toast.placement"
 import { useMemo } from "react"
+import { useToastOptionContext } from "./toast.provider"
 
 export interface UseToastOptions extends ThemingProps<"Alert"> {
   /**
@@ -34,6 +35,7 @@ export interface UseToastOptions extends ThemingProps<"Alert"> {
   description?: React.ReactNode
   /**
    * If `true`, toast will show a close button
+   * @default false
    */
   isClosable?: boolean
   /**
@@ -65,14 +67,17 @@ export interface UseToastOptions extends ThemingProps<"Alert"> {
  * React hook used to create a function that can be used
  * to show toasts in an application.
  */
-export function useToast(
-  defaultOptions?: UseToastOptions,
-): CreateToastFnReturn {
+export function useToast(options?: UseToastOptions): CreateToastFnReturn {
   const { theme } = useChakra()
+  const defaultOptions = useToastOptionContext()
 
   return useMemo(
-    () => createToastFn(theme.direction, defaultOptions),
-    [defaultOptions, theme.direction],
+    () =>
+      createToastFn(theme.direction, {
+        ...defaultOptions,
+        ...options,
+      }),
+    [options, theme.direction, defaultOptions],
   )
 }
 

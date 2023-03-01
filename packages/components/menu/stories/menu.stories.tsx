@@ -323,6 +323,25 @@ export const WithLetterNavigation = () => (
   </Menu>
 )
 
+export const WithScrolling = () => {
+  const items = React.useMemo(
+    () => Array.from({ length: 30 }).map((_, i) => `Option ${i}`),
+    [],
+  )
+  return (
+    <Menu>
+      <MenuButton>Choose an option</MenuButton>
+      <MenuList maxHeight="15rem" overflowY="scroll">
+        {items.map((value, i) => (
+          <MenuItem key={i} value={value}>
+            {value}
+          </MenuItem>
+        ))}
+      </MenuList>
+    </Menu>
+  )
+}
+
 export const JustAnotherExample = () => (
   <Menu>
     <MenuButton as={Button}>Your Cats</MenuButton>
@@ -548,5 +567,40 @@ export const WithoutMenuButton = () => {
       </Modal>
       <p>Press Cmd + K to open</p>
     </>
+  )
+}
+
+export const ProgrammaticFocusMenuOption = () => {
+  const item = React.useRef<HTMLButtonElement>(null)
+  return (
+    <Menu initialFocusRef={item}>
+      <MenuButton>Welcome</MenuButton>
+      <MenuList>
+        <MenuOptionGroup type="radio">
+          <MenuItemOption value="A">A</MenuItemOption>
+          <MenuItemOption value="B">B</MenuItemOption>
+          <MenuItemOption ref={item} value="C">
+            C
+          </MenuItemOption>
+          <MenuDivider />
+          <MenuItemOption value="D">D</MenuItemOption>
+          <MenuItemOption value="E">E</MenuItemOption>
+        </MenuOptionGroup>
+      </MenuList>
+    </Menu>
+  )
+}
+
+export const ProgrammaticFocusMenuItem = () => {
+  const item = React.useRef<HTMLButtonElement>(null)
+  return (
+    <Menu initialFocusRef={item}>
+      <MenuButton>Welcome</MenuButton>
+      <MenuList>
+        <MenuItem>Menu 1</MenuItem>
+        <MenuItem ref={item}>Menu 2</MenuItem>
+        <MenuItem>Menu 3</MenuItem>
+      </MenuList>
+    </Menu>
   )
 }

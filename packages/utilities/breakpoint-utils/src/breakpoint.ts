@@ -36,13 +36,12 @@ function keys(breakpoints: Record<string, any>) {
 function subtract(value: string) {
   if (!value) return value
   value = px(value) ?? value
-  const factor = value.endsWith("px")
-    ? -1
-    : // the equivalent of 1px in em using a 16px base
-      -0.0625
+
+  const OFFSET = -0.02
+
   return typeof value === "number"
-    ? `${value + factor}`
-    : value.replace(/(\d+\.?\d*)/u, (m) => `${parseFloat(m) + factor}`)
+    ? `${value + OFFSET}`
+    : value.replace(/(\d+\.?\d*)/u, (m) => `${parseFloat(m) + OFFSET}`)
 }
 
 export function toMediaQueryString(min: string | null, max?: string) {
@@ -90,6 +89,9 @@ export function analyzeBreakpoints(breakpoints: Record<string, any>) {
     asObject: sortBps(breakpoints),
     asArray: normalize(breakpoints),
     details: queries,
+    get(key: string) {
+      return queries.find((q) => q.breakpoint === key)
+    },
     media: [
       null,
       ...normalized.map((minW) => toMediaQueryString(minW)).slice(1),

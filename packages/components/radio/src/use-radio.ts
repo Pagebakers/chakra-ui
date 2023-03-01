@@ -24,35 +24,49 @@ export interface UseRadioProps {
    * The value to be used in the radio button.
    * This is the value that will be returned on form submission.
    */
-  value?: string | number
+  value?: string
   /**
    * If `true`, the radio will be checked.
    * You'll need to pass `onChange` to update its value (since it is now controlled)
+   *
+   * @default false
    */
   isChecked?: boolean
   /**
    * If `true`, the radio will be initially checked.
+   *
+   * @default false
    */
   defaultChecked?: boolean
   /**
    * If `true`, the radio will be disabled
+   *
+   * @default false
    */
   isDisabled?: boolean
   /**
    * If `true` and `isDisabled` is true, the radio will remain
    * focusable but not interactive.
+   *
+   * @default false
    */
   isFocusable?: boolean
   /**
    * If `true`, the radio will be read-only
+   *
+   * @default false
    */
   isReadOnly?: boolean
   /**
    * If `true`, the radio button will be invalid. This also sets `aria-invalid` to `true`.
+   *
+   * @default false
    */
   isInvalid?: boolean
   /**
    * If `true`, the radio button will be required. This also sets `aria-required` to `true`.
+   *
+   * @default false
    */
   isRequired?: boolean
   /**

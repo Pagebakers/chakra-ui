@@ -1,8 +1,6 @@
 import { loadingOverlayAnatomy as parts } from "@chakra-ui/anatomy"
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system"
 
-import { mode } from "@chakra-ui/theme-tools"
-
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(parts.keys)
 
@@ -13,31 +11,42 @@ const baseStyle = definePartsStyle({
   text: {},
 })
 
-const variantFill = definePartsStyle((props) => {
+const variantFill = definePartsStyle(() => {
   return {
     overlay: {
-      bg: mode("whiteAlpha.400", "blackAlpha.400")(props),
+      flex: 1,
+      height: "100%",
+      bg: "whiteAlpha.400",
+      _dark: {
+        bg: "blackAlpha.400",
+      },
     },
   }
 })
 
-const variantFullscreen = definePartsStyle((props) => {
+const variantFullscreen = definePartsStyle(() => {
   return {
     overlay: {
       position: "fixed",
       inset: 0,
-      bg: mode("white", "gray.800")(props),
       zIndex: "modal",
+      bg: "white",
+      _dark: {
+        bg: "gray.800",
+      },
     },
   }
 })
 
-const variantOverlay = definePartsStyle((props) => {
+const variantOverlay = definePartsStyle(() => {
   return {
     overlay: {
       position: "absolute",
       inset: 0,
-      bg: mode("whiteAlpha.400", "blackAlpha.400")(props),
+      bg: "whiteAlpha.300",
+      _dark: {
+        bg: "blackAlpha.300",
+      },
     },
   }
 })

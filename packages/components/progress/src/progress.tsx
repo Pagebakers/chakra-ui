@@ -6,6 +6,7 @@ import {
   ThemingProps,
   useMultiStyleConfig,
   HTMLChakraProps,
+  forwardRef,
 } from "@chakra-ui/system"
 import { createContext } from "@chakra-ui/react-context"
 import {
@@ -36,28 +37,34 @@ export interface ProgressFilledTrackProps
  *
  * @see Docs https://chakra-ui.com/progress
  */
-const ProgressFilledTrack: React.FC<ProgressFilledTrackProps> = (props) => {
-  const { min, max, value, isIndeterminate, ...rest } = props
-  const progress = getProgressProps({ value, min, max, isIndeterminate })
+const ProgressFilledTrack = forwardRef<ProgressFilledTrackProps, "div">(
+  (props, ref) => {
+    const { min, max, value, isIndeterminate, role, ...rest } = props
+    const progress = getProgressProps({
+      value,
+      min,
+      max,
+      isIndeterminate,
+      role,
+    })
 
-  const styles = useProgressStyles()
-  const trackStyles = {
-    height: "100%",
-    ...styles.filledTrack,
-  }
+    const styles = useProgressStyles()
+    const trackStyles = {
+      height: "100%",
+      ...styles.filledTrack,
+    }
 
-  return (
-    <chakra.div
-      style={{
-        width: `${progress.percent}%`,
-        ...rest.style,
-      }}
-      {...progress.bind}
-      {...rest}
-      __css={trackStyles}
-    />
-  )
-}
+    return (
+      <chakra.div
+        ref={ref}
+        style={{ width: `${progress.percent}%`, ...rest.style }}
+        {...progress.bind}
+        {...rest}
+        __css={trackStyles}
+      />
+    )
+  },
+)
 
 export interface ProgressTrackProps extends HTMLChakraProps<"div"> {}
 
@@ -79,15 +86,21 @@ interface ProgressOptions {
   max?: number
   /**
    * If `true`, the progress bar will show stripe
+   *
+   * @default false
    */
   hasStripe?: boolean
   /**
    * If `true`, and hasStripe is `true`, the stripes will be animated
+   *
+   * @default false
    */
   isAnimated?: boolean
   /**
    * If `true`, the progress will be indeterminate and the `value`
    * prop will be ignored
+   *
+   * @default false
    */
   isIndeterminate?: boolean
 }
@@ -108,7 +121,7 @@ export interface ProgressProps
  *
  * @see Docs https://chakra-ui.com/progress
  */
-export const Progress: React.FC<ProgressProps> = (props) => {
+export const Progress = forwardRef<ProgressProps, "div">((props, ref) => {
   const {
     value,
     min = 0,
@@ -120,6 +133,9 @@ export const Progress: React.FC<ProgressProps> = (props) => {
     isIndeterminate,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
+    "aria-valuetext": ariaValueText,
+    title,
+    role,
     ...rest
   } = omitThemingProps(props)
 
@@ -158,22 +174,30 @@ export const Progress: React.FC<ProgressProps> = (props) => {
   }
 
   return (
-    <chakra.div borderRadius={borderRadius} __css={trackStyles} {...rest}>
+    <chakra.div
+      ref={ref}
+      borderRadius={borderRadius}
+      __css={trackStyles}
+      {...rest}
+    >
       <ProgressStylesProvider value={styles}>
         <ProgressFilledTrack
           aria-label={ariaLabel}
           aria-labelledby={ariaLabelledBy}
+          aria-valuetext={ariaValueText}
           min={min}
           max={max}
           value={value}
           isIndeterminate={isIndeterminate}
           css={css}
           borderRadius={borderRadius}
+          title={title}
+          role={role}
         />
         {children}
       </ProgressStylesProvider>
     </chakra.div>
   )
-}
+})
 
 Progress.displayName = "Progress"

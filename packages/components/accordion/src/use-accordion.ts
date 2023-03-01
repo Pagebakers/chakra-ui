@@ -13,15 +13,23 @@ import {
  * useAccordion - The root react hook that manages all accordion items
  * -----------------------------------------------------------------------------------------------*/
 
+/**
+ * @deprecated - This will be removed in future versions.
+ * Please use `number | number[]` instead.
+ */
 export type ExpandedIndex = number | number[]
 
 export interface UseAccordionProps {
   /**
    * If `true`, multiple accordion items can be expanded at once.
+   *
+   * @default false
    */
   allowMultiple?: boolean
   /**
    * If `true`, any expanded accordion item can be collapsed again.
+   *
+   * @default false
    */
   allowToggle?: boolean
   /**
@@ -166,10 +174,14 @@ export const [AccordionProvider, useAccordionContext] =
 export interface UseAccordionItemProps {
   /**
    * If `true`, the accordion item will be disabled.
+   *
+   * @default false
    */
   isDisabled?: boolean
   /**
    * If `true`, the accordion item will be focusable.
+   *
+   * @default false
    */
   isFocusable?: boolean
   /**

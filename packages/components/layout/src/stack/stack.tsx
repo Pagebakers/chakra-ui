@@ -33,10 +33,12 @@ interface StackOptions {
   /**
    * The space between each stack item
    * @type SystemProps["margin"]
+   * @default "0.5rem"
    */
   spacing?: SystemProps["margin"]
   /**
    * The direction to stack the items.
+   * @default "column"
    */
   direction?: StackDirection
   /**
@@ -47,10 +49,14 @@ interface StackOptions {
   /**
    * If `true`, the children will be wrapped in a `Box` with
    * `display: inline-block`, and the `Box` will take the spacing props
+   *
+   * @default false
    */
   shouldWrapChildren?: boolean
   /**
    * If `true` the items will be stacked horizontally.
+   *
+   * @default false
    */
   isInline?: boolean
 }

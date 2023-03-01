@@ -46,6 +46,7 @@ export interface UseRangeSliderProps {
   orientation?: "horizontal" | "vertical"
   /**
    * If `true`, the value will be incremented or decremented in reverse.
+   * @default false
    */
   isReversed?: boolean
 
@@ -75,10 +76,12 @@ export interface UseRangeSliderProps {
   name?: string | string[]
   /**
    * If `true`, the slider will be disabled
+   * @default false
    */
   isDisabled?: boolean
   /**
    * If `true`, the slider will be in `read-only` state
+   * @default false
    */
   isReadOnly?: boolean
 
@@ -119,6 +122,23 @@ export interface UseRangeSliderProps {
    * @default 0
    */
   minStepsBetweenThumbs?: number
+}
+
+export interface RangeSliderState {
+  value: number[]
+  isFocused: boolean
+  isDragging: boolean
+  getThumbPercent: (index: number) => number
+  getThumbMinValue: (index: number) => number
+  getThumbMaxValue: (index: number) => number
+}
+
+export interface RangeSliderActions {
+  setValueAtIndex(index: number, val: number): void
+  setActiveIndex: React.Dispatch<React.SetStateAction<number>>
+  stepUp(index: number, step?: number): void
+  stepDown(index: number, step?: number): void
+  reset(): void
 }
 
 /**
@@ -246,7 +266,7 @@ export function useRangeSlider(props: UseRangeSliderProps) {
   const tenSteps = (max - min) / 10
   const oneStep = step || (max - min) / 100
 
-  const actions = useMemo(
+  const actions: RangeSliderActions = useMemo(
     () => ({
       setValueAtIndex(index: number, val: number) {
         if (!isInteractive) return
@@ -571,15 +591,17 @@ export function useRangeSlider(props: UseRangeSliderProps) {
     [name, value, ids],
   )
 
+  const state: RangeSliderState = {
+    value,
+    isFocused,
+    isDragging,
+    getThumbPercent: (index: number) => thumbPercents[index],
+    getThumbMinValue: (index: number) => valueBounds[index].min,
+    getThumbMaxValue: (index: number) => valueBounds[index].max,
+  }
+
   return {
-    state: {
-      value,
-      isFocused,
-      isDragging,
-      getThumbPercent: (index: number) => thumbPercents[index],
-      getThumbMinValue: (index: number) => valueBounds[index].min,
-      getThumbMaxValue: (index: number) => valueBounds[index].max,
-    },
+    state,
     actions,
     getRootProps,
     getTrackProps,

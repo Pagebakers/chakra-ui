@@ -14,12 +14,12 @@ export interface UseRadioGroupProps {
    * The value of the radio to be `checked`
    * (in controlled mode)
    */
-  value?: string | number
+  value?: string
   /**
    * The value of the radio to be `checked`
    * initially (in uncontrolled mode)
    */
-  defaultValue?: string | number
+  defaultValue?: string
   /**
    * Function called once a radio is checked
    * @param nextValue the value of the checked radio
@@ -27,12 +27,16 @@ export interface UseRadioGroupProps {
   onChange?(nextValue: string): void
   /**
    * If `true`, all wrapped radio inputs will be disabled
+   *
+   * @default false
    */
   isDisabled?: boolean
 
   /**
    * If `true` and `isDisabled` is true, all wrapped radio inputs will remain
    * focusable but not interactive.
+   *
+   * @default false
    */
   isFocusable?: boolean
   /**
@@ -44,6 +48,8 @@ export interface UseRadioGroupProps {
    * `checked` attribute instead of `isChecked`.
    *
    * This assumes, you're using native radio inputs
+   *
+   * @default false
    */
   isNative?: boolean
 }

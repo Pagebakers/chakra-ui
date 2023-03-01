@@ -1,5 +1,88 @@
 # Change Log
 
+## 2.1.5
+
+### Patch Changes
+
+- [`ddbb1b4c4`](https://github.com/chakra-ui/chakra-ui/commit/ddbb1b4c49b8f124c0368929357e2891265a50c0)
+  Thanks [@segunadebayo](https://github.com/segunadebayo)! - Bump all packages
+
+- [`b427ef966`](https://github.com/chakra-ui/chakra-ui/commit/b427ef9668d9ee000f44eb0cdd4d0a5ae9f396ec)
+  Thanks [@segunadebayo](https://github.com/segunadebayo)! - Fix issue where
+  `useDimension` uses stale value of node reference
+
+- Updated dependencies
+  [[`ddbb1b4c4`](https://github.com/chakra-ui/chakra-ui/commit/ddbb1b4c49b8f124c0368929357e2891265a50c0)]:
+  - @chakra-ui/react-utils@2.0.12
+  - @chakra-ui/utils@2.0.15
+
+## 2.1.4
+
+### Patch Changes
+
+- Updated dependencies
+  [[`9cdd43733`](https://github.com/chakra-ui/chakra-ui/commit/9cdd43733469e834740ec589a73f0d546c1e6b5b)]:
+  - @chakra-ui/utils@2.0.14
+  - @chakra-ui/react-utils@2.0.11
+
+## 2.1.3
+
+### Patch Changes
+
+- [#7154](https://github.com/chakra-ui/chakra-ui/pull/7154)
+  [`2d7398a01`](https://github.com/chakra-ui/chakra-ui/commit/2d7398a0142b5bdd3f68ce05bd159fc824cda5ef)
+  Thanks [@segunadebayo](https://github.com/segunadebayo)! - ## All components
+
+  Improved the bundling setup for all components.
+
+  - Switched to the `.mjs` file extension for correct ESM behavior
+  - Switched to the latest `tsup` will uses automatic JSX runtime detection
+    removing the need for manually inject classic `React` import
+  - Moved `tsup` config to `package.json` since it's very minimal
+  - Removed `clean-package.config.json` in favor of the `package.json` property
+  - Fixed issue where Storybook addon (dark mode and RTL) was not working
+
+- Updated dependencies
+  [[`2d7398a01`](https://github.com/chakra-ui/chakra-ui/commit/2d7398a0142b5bdd3f68ce05bd159fc824cda5ef),
+  [`0eedc151c`](https://github.com/chakra-ui/chakra-ui/commit/0eedc151caec8dbdb53e4e5e8354e2310553c19f)]:
+  - @chakra-ui/react-utils@2.0.10
+  - @chakra-ui/utils@2.0.13
+
+## 2.1.2
+
+### Patch Changes
+
+- [#6945](https://github.com/chakra-ui/chakra-ui/pull/6945)
+  [`75eaba929`](https://github.com/chakra-ui/chakra-ui/commit/75eaba9293e2c7d5bd6aed2037df05128f335930)
+  Thanks [@anddoutoi](https://github.com/anddoutoi)! - Fix issue where using
+  `@chakra-ui/react` in a TypeScript project with `"type": "module"` in
+  `package.json` and `"moduleResolution": "Node16"` in `tsconfig.json` cannot
+  find the types.
+- Updated dependencies
+  [[`75eaba929`](https://github.com/chakra-ui/chakra-ui/commit/75eaba9293e2c7d5bd6aed2037df05128f335930)]:
+  - @chakra-ui/react-utils@2.0.9
+  - @chakra-ui/utils@2.0.12
+
+## 2.1.1
+
+### Patch Changes
+
+- [#6863](https://github.com/chakra-ui/chakra-ui/pull/6863)
+  [`49dc149cc`](https://github.com/chakra-ui/chakra-ui/commit/49dc149cc600af83dcde4fa9b6a34a6b14dca837)
+  Thanks [@Andarist](https://github.com/Andarist)! - Fixed issue where focus
+  sometimes moved back to the open element when it was intentionally moved away
+  from it.
+
+## 2.1.0
+
+### Minor Changes
+
+- [#6763](https://github.com/chakra-ui/chakra-ui/pull/6763)
+  [`ed7f878b3`](https://github.com/chakra-ui/chakra-ui/commit/ed7f878b3463cc5a83d67a7aed6dd6fc5a0570f6)
+  Thanks [@noobinthisgame](https://github.com/noobinthisgame)! - Added
+  `setValue` as function exposed by `useClipboard` to enable control over the
+  value after first initialization
+
 ## 2.0.11
 
 ### Patch Changes

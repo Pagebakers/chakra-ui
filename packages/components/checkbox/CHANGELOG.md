@@ -1,5 +1,147 @@
 # Change Log
 
+## 2.2.10
+
+### Patch Changes
+
+- [#7248](https://github.com/chakra-ui/chakra-ui/pull/7248)
+  [`c57b00f80`](https://github.com/chakra-ui/chakra-ui/commit/c57b00f80f177c2a165dc3e879e30e362b0806fb)
+  Thanks [@segunadebayo](https://github.com/segunadebayo)! - - Improved JS Doc
+  comments to include default values
+  - Fixed regression in exported components
+- Updated dependencies
+  [[`c57b00f80`](https://github.com/chakra-ui/chakra-ui/commit/c57b00f80f177c2a165dc3e879e30e362b0806fb)]:
+  - @chakra-ui/form-control@2.0.17
+
+## 2.2.9
+
+### Patch Changes
+
+- [`ddbb1b4c4`](https://github.com/chakra-ui/chakra-ui/commit/ddbb1b4c49b8f124c0368929357e2891265a50c0)
+  Thanks [@segunadebayo](https://github.com/segunadebayo)! - Bump all packages
+
+- Updated dependencies
+  [[`ddbb1b4c4`](https://github.com/chakra-ui/chakra-ui/commit/ddbb1b4c49b8f124c0368929357e2891265a50c0)]:
+  - @chakra-ui/form-control@2.0.16
+  - @chakra-ui/visually-hidden@2.0.15
+  - @chakra-ui/react-context@2.0.7
+  - @chakra-ui/react-use-callback-ref@2.0.7
+  - @chakra-ui/react-use-controllable-state@2.0.8
+  - @chakra-ui/react-use-merge-refs@2.0.7
+  - @chakra-ui/react-use-safe-layout-effect@2.0.5
+  - @chakra-ui/react-use-update-effect@2.0.7
+  - @chakra-ui/react-types@2.0.7
+  - @chakra-ui/shared-utils@2.0.5
+
+## 2.2.8
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @chakra-ui/form-control@2.0.15
+  - @chakra-ui/visually-hidden@2.0.14
+
+## 2.2.7
+
+### Patch Changes
+
+- [`7a62c30cc`](https://github.com/chakra-ui/chakra-ui/commit/7a62c30cc4977adf7c6021fabbd16b3bd4707e9f)
+  Thanks [@segunadebayo](https://github.com/segunadebayo)! - Update `@zag-js/*`
+  dependencies to latest versions for better ESM compatibility
+
+- Updated dependencies []:
+  - @chakra-ui/form-control@2.0.14
+  - @chakra-ui/visually-hidden@2.0.14
+
+## 2.2.6
+
+### Patch Changes
+
+- [#7154](https://github.com/chakra-ui/chakra-ui/pull/7154)
+  [`2d7398a01`](https://github.com/chakra-ui/chakra-ui/commit/2d7398a0142b5bdd3f68ce05bd159fc824cda5ef)
+  Thanks [@segunadebayo](https://github.com/segunadebayo)! - ## All components
+
+  Improved the bundling setup for all components.
+
+  - Switched to the `.mjs` file extension for correct ESM behavior
+  - Switched to the latest `tsup` will uses automatic JSX runtime detection
+    removing the need for manually inject classic `React` import
+  - Moved `tsup` config to `package.json` since it's very minimal
+  - Removed `clean-package.config.json` in favor of the `package.json` property
+  - Fixed issue where Storybook addon (dark mode and RTL) was not working
+
+- Updated dependencies
+  [[`2d7398a01`](https://github.com/chakra-ui/chakra-ui/commit/2d7398a0142b5bdd3f68ce05bd159fc824cda5ef)]:
+  - @chakra-ui/form-control@2.0.14
+  - @chakra-ui/visually-hidden@2.0.14
+  - @chakra-ui/react-context@2.0.6
+  - @chakra-ui/react-use-callback-ref@2.0.6
+  - @chakra-ui/react-use-controllable-state@2.0.7
+  - @chakra-ui/react-use-merge-refs@2.0.6
+  - @chakra-ui/react-use-safe-layout-effect@2.0.4
+  - @chakra-ui/react-use-update-effect@2.0.6
+  - @chakra-ui/react-types@2.0.6
+  - @chakra-ui/shared-utils@2.0.4
+
+## 2.2.5
+
+### Patch Changes
+
+- Updated dependencies
+  [[`67ef76e32`](https://github.com/chakra-ui/chakra-ui/commit/67ef76e32369f7376ccd9242865f758157544b48)]:
+  - @chakra-ui/react-types@2.0.5
+  - @chakra-ui/form-control@2.0.13
+  - @chakra-ui/visually-hidden@2.0.13
+
+## 2.2.4
+
+### Patch Changes
+
+- [#6945](https://github.com/chakra-ui/chakra-ui/pull/6945)
+  [`75eaba929`](https://github.com/chakra-ui/chakra-ui/commit/75eaba9293e2c7d5bd6aed2037df05128f335930)
+  Thanks [@anddoutoi](https://github.com/anddoutoi)! - Fix issue where using
+  `@chakra-ui/react` in a TypeScript project with `"type": "module"` in
+  `package.json` and `"moduleResolution": "Node16"` in `tsconfig.json` cannot
+  find the types.
+- Updated dependencies
+  [[`75eaba929`](https://github.com/chakra-ui/chakra-ui/commit/75eaba9293e2c7d5bd6aed2037df05128f335930)]:
+  - @chakra-ui/form-control@2.0.12
+  - @chakra-ui/visually-hidden@2.0.13
+  - @chakra-ui/react-context@2.0.5
+  - @chakra-ui/react-use-callback-ref@2.0.5
+  - @chakra-ui/react-use-controllable-state@2.0.6
+  - @chakra-ui/react-use-merge-refs@2.0.5
+  - @chakra-ui/react-use-safe-layout-effect@2.0.3
+  - @chakra-ui/react-use-update-effect@2.0.5
+  - @chakra-ui/react-types@2.0.4
+
+## 2.2.3
+
+### Patch Changes
+
+- [#6929](https://github.com/chakra-ui/chakra-ui/pull/6929)
+  [`1377b7280`](https://github.com/chakra-ui/chakra-ui/commit/1377b7280e398aadf70b54c7846a36136c7bd772)
+  Thanks [@yukukotani](https://github.com/yukukotani)! - Replaced
+  `framer-motion` with css animation
+
+- Updated dependencies
+  [[`132a98958`](https://github.com/chakra-ui/chakra-ui/commit/132a98958be64e46619b1e280ca6405d0a833cb0)]:
+  - @chakra-ui/visually-hidden@2.0.12
+  - @chakra-ui/form-control@2.0.11
+
+## 2.2.2
+
+### Patch Changes
+
+- [#6784](https://github.com/chakra-ui/chakra-ui/pull/6784)
+  [`91698604c`](https://github.com/chakra-ui/chakra-ui/commit/91698604c78a360b90a946c2f2072c514c98ebc5)
+  Thanks [@segunadebayo](https://github.com/segunadebayo)! - Allow checkbox
+  control and root's style to be overriden from theme
+
+- Updated dependencies []:
+  - @chakra-ui/form-control@2.0.11
+  - @chakra-ui/visually-hidden@2.0.11
+
 ## 2.2.1
 
 ### Patch Changes

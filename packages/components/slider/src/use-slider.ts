@@ -72,10 +72,12 @@ export interface UseSliderProps {
   name?: string
   /**
    * If `true`, the slider will be disabled
+   * @default false
    */
   isDisabled?: boolean
   /**
    * If `true`, the slider will be in `read-only` state
+   * @default false
    */
   isReadOnly?: boolean
   /**
@@ -108,6 +110,19 @@ export interface UseSliderProps {
    * @default "ltr"
    */
   direction?: "ltr" | "rtl"
+}
+
+export interface SliderState {
+  value: number
+  isFocused: boolean
+  isDragging: boolean
+}
+
+export interface SliderActions {
+  stepUp(step?: number): void
+  stepDown(step?: number): void
+  reset(): void
+  stepTo(value: number): void
 }
 
 /**
@@ -263,7 +278,7 @@ export function useSlider(props: UseSliderProps) {
     [oneStep, setValue, stateRef],
   )
 
-  const actions = useMemo(
+  const actions: SliderActions = useMemo(
     () => ({
       stepUp(step = oneStep) {
         const next = isReversed ? value - step : value + step
@@ -531,8 +546,10 @@ export function useSlider(props: UseSliderProps) {
     [name, value],
   )
 
+  const state: SliderState = { value, isFocused, isDragging }
+
   return {
-    state: { value, isFocused, isDragging },
+    state,
     actions,
     getRootProps,
     getTrackProps,

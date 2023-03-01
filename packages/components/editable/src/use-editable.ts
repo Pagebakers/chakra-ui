@@ -6,7 +6,7 @@ import { mergeRefs } from "@chakra-ui/react-use-merge-refs"
 import { useCallbackRef } from "@chakra-ui/react-use-callback-ref"
 import { ariaAttr, callAllHandlers } from "@chakra-ui/shared-utils"
 import { PropGetter } from "@chakra-ui/react-types"
-import { useCallback, useRef, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 
 export interface UseEditableProps {
   /**
@@ -171,6 +171,15 @@ export function useEditable(props: UseEditableProps = {}) {
     onSubmitProp?.(value)
   }, [value, onSubmitProp])
 
+  useEffect(() => {
+    if (isEditing) return
+    // https://bugzilla.mozilla.org/show_bug.cgi?id=559561
+    const inputEl = inputRef.current
+    if (inputEl?.ownerDocument.activeElement === inputEl) {
+      inputEl?.blur()
+    }
+  }, [isEditing])
+
   const onChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       setValue(event.currentTarget.value)
@@ -223,6 +232,7 @@ export function useEditable(props: UseEditableProps = {}) {
 
   const onBlur = useCallback(
     (event: React.FocusEvent) => {
+      if (!isEditing) return
       const doc = event.currentTarget.ownerDocument
       const relatedTarget = (event.relatedTarget ??
         doc.activeElement) as HTMLElement
@@ -238,7 +248,7 @@ export function useEditable(props: UseEditableProps = {}) {
         }
       }
     },
-    [submitOnBlur, onSubmit, onCancel],
+    [submitOnBlur, onSubmit, onCancel, isEditing],
   )
 
   const getPreviewProps: PropGetter = useCallback(
